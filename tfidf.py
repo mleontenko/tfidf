@@ -15,3 +15,16 @@ for word in bagOfWordsA:
 numOfWordsB = dict.fromkeys(uniqueWords, 0)
 for word in bagOfWordsB:
     numOfWordsB[word] += 1
+
+def computeTF(wordDict, bagOfWords):
+    tfDict = {}
+    bagOfWordsCount = len(bagOfWords)
+    for word, count in wordDict.items():
+        tfDict[word] = count / float(bagOfWordsCount)
+    return tfDict
+
+tfA = computeTF(numOfWordsA, bagOfWordsA)
+tfB = computeTF(numOfWordsB, bagOfWordsB)
+
+print(tfA)
+print(tfB)
