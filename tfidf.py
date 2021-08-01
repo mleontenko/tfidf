@@ -42,4 +42,15 @@ def computeIDF(documents):
 
 idfs = computeIDF([numOfWordsA, numOfWordsB])
 
-print(idfs)
+def computeTFIDF(tfBagOfWords, idfs):
+    tfidf = {}
+    for word, val in tfBagOfWords.items():
+        tfidf[word] = val * idfs[word]
+    return tfidf
+
+tfidfA = computeTFIDF(tfA, idfs)
+tfidfB = computeTFIDF(tfB, idfs)
+
+df = pd.DataFrame([tfidfA, tfidfB])
+
+print(df)
